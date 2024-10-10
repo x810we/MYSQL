@@ -37,11 +37,11 @@ public class DBApp1 {
         Connection connection = DriverManager.getConnection(
                 "jdbc:mysql://localhost:3306/HausHalt", "x810we", "soswind22");
 
-        String insertQuery = "INSERT INTO Medien (idMedien,Datum,ZStand) VALUES (?, ?, ?)";
+        String insertQuery = "INSERT INTO Medien (Datum,ZStand) VALUES (?, ?)";
         try (PreparedStatement pstmt = connection.prepareStatement(insertQuery)) {
-            pstmt.setInt(1, 1);
-            pstmt.setTimestamp(2, Timestamp.valueOf(tagValue2));
-            pstmt.setInt(3, 50000);
+          //  pstmt.setInt(1, );
+            pstmt.setTimestamp(1, Timestamp.valueOf(tagValue2));
+            pstmt.setInt(2, 50000);
             pstmt.executeUpdate();
         }
 
